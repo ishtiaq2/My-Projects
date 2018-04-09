@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Play RPS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="rpswebsocket.js"></script>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+        
+        <p></p>
+            
+        <form id="form">
+            <div class="mainDiv">
+                
+                <div id="div1"> 
+                    <div id="status">Name </div>
+                    <input type="text" id="txtStatus" size="20"> 
+                    <input id="btnSend" type="button" value="login" onClick="clickEvent(this)">                      
+                </div>
+
+                <div id="div2">
+                    <label for="opponents" id="opponents"> OPPONENTS </label>
+
+                    <select id="list" multiple>
+                        <option id="p1" value="p1"></option>
+                        <option id="p2" value="p2"></option>
+                        <option id="p3" value="p3"></option>
+                        <option id="p4" value="p3"></option>
+                        <option id="p5" value="p3"></option>
+                        <option id="p6" value="p3"></option>
+                    </select>
+                    <input id="requestToPlay" type="button" value="Click to Participate" onclick="clickEvent(this)" disabled>
+                </div>
+            </div>
+        </form>
+        
+        <div class="statusDiv">
+        
+            <div id="name"></div>
+            <div id="listofusers"></div>
+        
+        </div>
+        
+        
+        </body>
+</html>

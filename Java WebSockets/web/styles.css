@@ -1,0 +1,57 @@
+.mainDiv {
+   display: flex;
+}
+/*.mainDiv > div {
+  flex: 1; grow
+}*/
+
+#div1 {
+    
+    width: 10%;
+    padding: 50px 50px;
+    text-align: left;
+    background-color: lightblue;
+    margin-top: 20px;
+}
+#div2 {
+    
+    width: 15%;
+    padding: 50px 50px;
+    text-align: left;
+    background-color: lightblue;
+    margin-top: 20px;
+}
+
+#list {
+    /*padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;*/
+    width: 200px;
+    background-color: #cccccc;
+    color: #425c5c;
+}
+
+#opponents {
+    color: black;
+    /*background-color: #cccccc;*/
+    letter-spacing: 3px;
+}
+
+.statusDiv {
+    background-color: #ffcccc;
+    width: 535px;
+}
+
+#name {
+    width: 390px;
+    /*border: 2px solid b;*/
+    padding: 2px;
+    /*margin: 25px; */ /*move to right 25pxv*/
+    margin-top: 10px;
+}
+
+#listofusers {
+    color: black;
+    padding-left: 5px;
+}
