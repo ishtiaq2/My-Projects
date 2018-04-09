@@ -1,0 +1,15 @@
+<header><h4>Comments</h4></header>
+
+<nav>
+  <ul>
+    <li *ngFor="let comment of commentsList">
+      {{comment}}
+    </li>
+  </ul>
+</nav>
+
+<h3><p>Add a comment</p></h3>
+<p><textarea name="comment" rows="5" cols="30" #comnt></textarea></p>
+<p><input type="button" value="Save" (click)="comment(file.id, comnt.value)"></p>
+
+

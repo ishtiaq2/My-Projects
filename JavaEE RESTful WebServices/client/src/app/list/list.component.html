@@ -1,0 +1,26 @@
+<header>
+  <h3>List of Files</h3>
+  <a (click)='getFileList()'> Refresh </a>
+</header>
+
+<nav>
+  <ul *ngFor='let file of fileList'>
+    <li><a (click)="getFile(file.id)"> {{file.title}}</a></li>
+  </ul>
+</nav>
+
+<h3><p>CRUD File by Title</p></h3>
+<p>Title <input type="text" name="title" #title></p>
+<p>contents <textarea rows='5' cols='25' name="contents" #contents></textarea></p>
+<p><input type="button" value="Create" (click)="createFile(title.value, contents.value)"></p>
+<p><input type="button" value="Update" (click)="updateFile(title.value, contents.value)"></p>
+<p><input type="button" value="Delete" (click)="deleteFile(title.value)"></p>
+<p><input type="button" value="Upload" (click)="uploadFile()"></p>
+<!--
+<li><a [routerLink]="['register']">Register</a></li>
+    <li><a [routerLink]="['login']">Login</a></li>
+    <a [routerLink]="[{outlets: {primary: 'login', aux: 'chat'}}]">Open Chat</a>
+    <a [routerLink]="[{outlets: {aux: null}}]">Close Chat</a>
+    <a (click)="getFile()"> Get File</a></li>
+    <li><a (click)="getFileList()"> Get File List</a></li>
+-->

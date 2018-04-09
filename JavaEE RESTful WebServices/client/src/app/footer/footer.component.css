@@ -1,0 +1,17 @@
+footer {
+    background: #00795f;
+    width: 100%;
+    padding: 20px 0;
+    color: white;
+    text-align: center;
+}
+footer .userInfo {
+    width: 100%;
+    height: 10%;
+    background: #00795f;
+}
+footer .fileInfo {
+    width: 100%;
+    height: 10%;
+    background: #00795f;
+}
