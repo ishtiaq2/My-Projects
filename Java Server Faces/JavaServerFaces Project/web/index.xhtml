@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Exchange Service</title>
+    </h:head>
+    <h:body>
+        
+        
+        <p></p>
+        <h1> Currency Converter </h1>
+        
+        <p></p>
+        <h3> EUR, PKR, SAR, SEK, USD </h3>
+        
+        <p></p>
+        <h:form>
+            
+            <p></p>
+            
+            <h:outputLabel for="amount" value="Enter amount" style="display:block;width:135px"/>
+            
+            <h:inputText id="amount"
+                title="Enter amount > 0"
+                value="#{exchangeManager.amount}" 
+                required="true" 
+                requiredMessage="Enter amount > 0" 
+                size="10" 
+                maxlength="12" >
+            </h:inputText>
+            <h:message for="amount" style="color:red"/>
+                        
+            <p></p>
+            <h:outputLabel for="fromCurrency" value="From Currency" style="display:block;width:135px"/>
+            
+            <h:inputText id="fromCurrency"
+                title="From Currency, e.g. SEK"
+                value="#{exchangeManager.fromCurrency}" 
+                required="true" 
+                requiredMessage="Enter Currency to convert from, e.g. SEK" 
+                size="12" 
+                maxlength="12">
+            </h:inputText> 
+            <h:message for="fromCurrency" style="color:red"/>
+            
+            <p></p>
+            <h:outputLabel for="toCurrency" value="To Currency" style="display:block;width:135px"/>
+            <h:inputText id="toCurrency"
+                title="Enter Currency, e.g. EUR"
+                value="#{exchangeManager.toCurrency}" 
+                required="true" 
+                requiredMessage="Enter Currency to convert to, e.g. EUR" 
+                size="12" 
+                maxlength="12">
+            </h:inputText> 
+            <h:message for="toCurrency" style="color:red"/>
+            
+            <p></p>
+            <h:commandButton id="submit" value="Convert" action="#{exchangeManager.convertCurrency}"/>
+            
+            
+            <p></p>
+            <h:inputTextarea rows= "10" cols="40" value = "#{exchangeManager.exchangedAmount}" readonly = "true"/>
+                      
+        </h:form>
+    </h:body>
+</html>
+
