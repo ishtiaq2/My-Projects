@@ -1,7 +1,9 @@
 
                             Changes made to the orignal proect specification
 
-a.  The file meta data and contents are saved in the database insted in directories, and therefore the table used to store file data
+a.  The file meta data and contents are saved in the database instead in directories, and therefore the table used to store file data
     has the following columns: ID, Title, Contents, Owner.
     
 b. File created by one user have read access to all other users, and only the owner can perform operations such as delete and update.
+c. User passwords are stored in a secure ways, using SHA256 with salt.
+d. Users can comment a file.
