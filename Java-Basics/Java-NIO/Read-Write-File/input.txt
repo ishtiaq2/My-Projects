@@ -1,0 +1,5 @@
+Line 1: This is input file
+Line 2: This is input file
+Line 1: This is input file
+Line 2: This is input file 
+end of file
