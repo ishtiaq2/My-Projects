@@ -1,0 +1,10 @@
+<div>
+  <header>
+  Create Wallet 
+</header>
+
+<p>Name <input type="text" name="name" #name> </p>
+<p>Balance <input type="text" name="balance" #balance> </p>
+<p><input type="button" value="create" (click)="createWallet(name.value, balance.value)"></p>
+</div>
+
