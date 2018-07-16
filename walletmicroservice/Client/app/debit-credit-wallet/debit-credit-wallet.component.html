@@ -1,0 +1,11 @@
+<div>
+    <header>
+    Debit/Credit Wallet 
+  </header>
+  
+  <p>Wallet ID <input type="text" name="walletId" #walletId> </p>
+  <p>Transaction ID (any combination of letters without free space) <input type="text" name="transactionId" #transactionId> </p>
+  <p>Amount <input type="text" name="amount" #amount> </p>
+  <p><input type="button" value="Debit" (click)="debitWallet(walletId.value, transactionId.value, amount.value)"></p>
+  <p><input type="button" value="Credit" (click)="creditWallet(walletId.value, transactionId.value, amount.value)"></p>
+  </div>

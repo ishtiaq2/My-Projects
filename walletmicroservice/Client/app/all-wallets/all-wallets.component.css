@@ -1,0 +1,36 @@
+div {
+    color: yellow;
+    background: grey;
+    width: 50%;
+    height: 30%;
+    border-style:solid;
+    border-width:thick;
+    padding: 10px 140px;
+}
+
+div header {
+    color: yellow;
+    background: grey;
+    width: 100%;
+    text-align: left;
+    font-size: 1.9em;
+}
+
+p {
+    width: 100%;
+    align-content: center;
+}
+
+p textarea {
+    width: 100%;
+    height: 200px;
+    text-align: left;
+    text-indent: 0em;
+    
+}
+
+a {
+    text-decoration: none;
+    color:yellow;
+    cursor: pointer;
+}
