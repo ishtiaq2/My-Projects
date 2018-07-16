@@ -1,0 +1,16 @@
+<div>
+    <header>
+    Fetched Wallet Info
+  </header>
+
+Wallet ID: {{wallet.id}}
+<br>
+Wallet Name: {{wallet.name}}
+<br>
+Wallet balance: {{wallet.currentBalance}}
+<br>
+Transaction IDs, type and amount
+<li *ngFor="let transId of transactionIds">
+    {{transId}}
+  </li>
+</div>

@@ -1,0 +1,13 @@
+<div>
+    <header>
+    All Existing Wallets by IDs <a (click)="getWalletList()">(Refresh) </a>
+  </header>
+  
+  <br>
+  Click from the list to fetch wallet and see detail:
+  <ul *ngFor='let wallet of walletList'>
+
+    <li> <a (click)="fetchWallet(wallet.id)">{{wallet.id}}  : {{wallet.currentBalance}} </a> </li>
+  </ul>
+
+</div>
