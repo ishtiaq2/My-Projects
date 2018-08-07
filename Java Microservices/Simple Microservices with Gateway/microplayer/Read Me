@@ -1,1 +1,8 @@
 
+Microplayer consist of two microservices, microplayer and microplayerrank.
+The two microservies are separately deployable units of codes on two separate machines.
+The gateway could be used to access the two microservices with the following urls in case all the services
+are deployed on the same machine:
+
+1. To access the microplayer service: http://localhost:8080/microplayergateway/playerGatewayApp/playerGatewayService/findById/2 
+2. To access the microplayerrank: http://localhost:8080/microplayergateway/playerGatewayApp/playerRankGatewayService/findById/1
