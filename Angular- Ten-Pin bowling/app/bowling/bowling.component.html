@@ -1,0 +1,26 @@
+<div>
+
+  <header>
+    Play Pinbowl
+  </header>
+
+  <p>Roll 1 <input type="text" name="name" #roll1> </p>
+  <p>Roll 2<input type="text" name="name" #roll2> </p>
+  <p><input type="button" value="Roll" (click)="roll(roll1.value, roll2.value)"></p>
+  <p></p>
+
+  <div ng-controller = "request" class="request">
+    Current Request in JSON format: {{request}}
+  </div>
+
+  <div ng-controller = "response" class="response">
+    Current Response in JSON format: {{response}}
+  </div>
+
+  <div></div>
+
+  <div ng-controller="rolls-left" class="rolls-left">
+    Frame Number: {{frameNumber}} 
+  </div>
+  
+</div>

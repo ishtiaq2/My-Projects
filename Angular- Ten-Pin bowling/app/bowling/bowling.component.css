@@ -1,0 +1,30 @@
+div header {
+    color: white;
+    width: 100%;
+    text-align: left;
+    font-size: 1.9em;
+}
+
+.request {
+    padding-top: 10px;
+    color: black;
+    font-size: 20px;
+    background:palegoldenrod;
+    padding-bottom: 10px;
+}
+
+.response {
+    padding-top: 10px;
+    color: white;
+    font-size: 20px;
+    background: cadetblue;
+    padding-bottom: 10px;
+}
+
+.rolls-left {
+    padding-top: 10px;
+    color: white;
+    font-size: 20px;
+    background:chocolate;
+    padding-bottom: 10px;
+}
