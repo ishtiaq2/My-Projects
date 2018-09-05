@@ -12,4 +12,16 @@ CompletableFuture<Void> future = CompletableFuture.runAsync(new Runnable() {
     }
 });
 
+
+// Using Lambda Expression
+CompletableFuture<Void> future = CompletableFuture.runAsync(() -> {
+    // Simulate a long-running Job   
+    try {
+        TimeUnit.SECONDS.sleep(1);
+    } catch (InterruptedException e) {
+        throw new IllegalStateException(e);
+    }
+    System.out.println("I'll run in a separate thread than the main thread.");
+});
+
 https://www.callicoder.com/java-8-completablefuture-tutorial/
