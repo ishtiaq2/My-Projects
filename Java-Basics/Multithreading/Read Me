@@ -24,4 +24,35 @@ CompletableFuture<Void> future = CompletableFuture.runAsync(() -> {
     System.out.println("I'll run in a separate thread than the main thread.");
 });
 
+
+
+
+// Run a task specified by a Supplier object asynchronously
+CompletableFuture<String> future = CompletableFuture.supplyAsync(new Supplier<String>() {
+    @Override
+    public String get() {
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            throw new IllegalStateException(e);
+        }
+        return "Result of the asynchronous computation";
+    }
+});
+
+// Block and get the result of the Future
+String result = future.get();
+System.out.println(result);
+
+// Using Lambda Expression
+CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
+    try {
+        TimeUnit.SECONDS.sleep(1);
+    } catch (InterruptedException e) {
+        throw new IllegalStateException(e);
+    }
+    return "Result of the asynchronous computation";
+});
+
+
 https://www.callicoder.com/java-8-completablefuture-tutorial/
