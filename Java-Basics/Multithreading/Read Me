@@ -54,5 +54,7 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
     return "Result of the asynchronous computation";
 });
 
+and Now the Good Thing:
+"CompletableFuture executes these tasks in a thread obtained from the global ForkJoinPool.commonPool()".
 
 https://www.callicoder.com/java-8-completablefuture-tutorial/
