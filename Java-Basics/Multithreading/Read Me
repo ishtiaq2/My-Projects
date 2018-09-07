@@ -57,6 +57,7 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
 and Now the Good Thing:
 "CompletableFuture executes these tasks in a thread obtained from the global ForkJoinPool.commonPool()".
 
+https://community.oracle.com/docs/DOC-995305
 https://blog.krecan.net/2013/12/25/completablefutures-why-to-use-async-methods/
 https://www.callicoder.com/java-8-completablefuture-tutorial/
 https://dzone.com/articles/java-concurrency-fork-join-pool  //Binary search
