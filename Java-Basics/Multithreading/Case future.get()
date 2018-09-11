@@ -1,1 +1,20 @@
 
+public void futureCF6() throws Exception {
+		CompletableFuture<String> user = CompletableFuture.supplyAsync(new Supplier<String>() {
+			
+			public String get() {
+				System.out.println("Enter user");
+				Scanner in = new Scanner(System.in);
+				String name = in.nextLine();
+				return getUser(name);
+			}
+			
+		}).thenApplyAsync(usr -> getCredit(usr), executor).thenApplyAsync(cred -> cred + doTransaction(cred), executor);
+		CompletableFuture<Void> printer = user.thenAcceptAsync(System.out::println);
+		CompletableFuture<Void> creditProcessed = printer.thenRunAsync(() -> System.out.println("Transaction completed"), executor);
+		user.get();
+	}
+	
+  futureCF6(); ///note that user.get() is blocking and no following thread can execute before get return.
+  
+  
