@@ -17,4 +17,31 @@ public void futureCF6() throws Exception {
 	
   futureCF6(); ///note that user.get() is blocking and no following thread can execute before get return.
   
-  
+  public String getUser(String name) {
+		//get user from remote server;
+		userName = name;
+		try {
+			Thread.sleep(2000);
+		} catch (Exception e) {}
+		System.out.println("User " + name + " Found!");
+		return name;
+	}
+	
+	public String getCredit(String user) {
+		//get credit from remote server;
+		try {
+			Thread.sleep(2000);
+		} catch (Exception e) {}
+		System.out.println(user + " Credit Detail Request!");
+		return "Credit:1000";
+	}
+	
+	public String doTransaction(String credit) {
+		try {
+			Thread.sleep(2000);
+		} catch(Exception e) {
+		}
+		String[] tokens = credit.split(":");
+		System.out.println("Transaction request!");
+		return ", After transaction 1000 - 100 = 900";
+	}
