@@ -1,65 +1,8 @@
 
-CompletableFuture<Void> future = CompletableFuture.runAsync(new Runnable() {
-    @Override
-    public void run() {
-        // Simulate a long-running Job
-        try {
-            TimeUnit.SECONDS.sleep(1);
-        } catch (InterruptedException e) {
-            throw new IllegalStateException(e);
-        }
-        System.out.println("I'll run in a separate thread than the main thread.");
-    }
-});
-
-
-// Using Lambda Expression
-CompletableFuture<Void> future = CompletableFuture.runAsync(() -> {
-    // Simulate a long-running Job   
-    try {
-        TimeUnit.SECONDS.sleep(1);
-    } catch (InterruptedException e) {
-        throw new IllegalStateException(e);
-    }
-    System.out.println("I'll run in a separate thread than the main thread.");
-});
-
-
-
-
-// Run a task specified by a Supplier object asynchronously
-CompletableFuture<String> future = CompletableFuture.supplyAsync(new Supplier<String>() {
-    @Override
-    public String get() {
-        try {
-            TimeUnit.SECONDS.sleep(1);
-        } catch (InterruptedException e) {
-            throw new IllegalStateException(e);
-        }
-        return "Result of the asynchronous computation";
-    }
-});
-
-// Block and get the result of the Future
-String result = future.get();
-System.out.println(result);
-
-// Using Lambda Expression
-CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
-    try {
-        TimeUnit.SECONDS.sleep(1);
-    } catch (InterruptedException e) {
-        throw new IllegalStateException(e);
-    }
-    return "Result of the asynchronous computation";
-});
-
-and Now the Good Thing:
-"CompletableFuture executes these tasks in a thread obtained from the global ForkJoinPool.commonPool()".
-
 https://community.oracle.com/docs/DOC-995305
 https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ExecutorService.html
 https://blog.krecan.net/2013/12/25/completablefutures-why-to-use-async-methods/
 https://www.callicoder.com/java-8-completablefuture-tutorial/
 https://dzone.com/articles/java-concurrency-fork-join-pool  //Binary search
 https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html
+https://www.baeldung.com/java-completablefuture
