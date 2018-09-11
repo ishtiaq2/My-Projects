@@ -42,8 +42,8 @@ public class RunParallelFutures implements Runnable {
 	
 	public void run() {
 		try {
-				System.out.println(Thread.currentThread().getName() + ", CompleClass: ");
-			} catch (Exception e) {}
+			System.out.println(Thread.currentThread().getName() + ", CompleClass: ");
+		} catch (Exception e) {}
 		
 		String combined = Stream.of(future1, future2, future3)
 						.map(CompletableFuture::join)
