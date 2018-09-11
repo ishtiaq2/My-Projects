@@ -62,3 +62,4 @@ https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ExecutorService.h
 https://blog.krecan.net/2013/12/25/completablefutures-why-to-use-async-methods/
 https://www.callicoder.com/java-8-completablefuture-tutorial/
 https://dzone.com/articles/java-concurrency-fork-join-pool  //Binary search
+https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html
