@@ -17,7 +17,7 @@ public class ParallelTasks {
 																					service)
 								.thenApply(user -> getCreditDetail(user, currentSleeptime))
 									.thenApply(email -> sendEmail(email))
-									.thenAccept(System.out::println)
+									    .thenAccept(System.out::println)
 										.thenRun(() -> System.out.println("completed"));
 		}
 		service.shutdown();
