@@ -47,8 +47,8 @@ public class ParallelTasks {
 		return "email sent to: " + user[0];
 	}
 	
-	public String failCase(String cse) {
-		return cse;
+	public String failCase(String exep) {
+		return exep;
 	}
 	
 }
