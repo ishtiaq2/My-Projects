@@ -1,3 +1,5 @@
+Note: Not final, still under develope and may change and also may look vague.
+
 The purpose of this project is to analyse HTTP protocol.
 
 This project is developed into steps.
