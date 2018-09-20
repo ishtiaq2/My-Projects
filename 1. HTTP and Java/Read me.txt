@@ -13,6 +13,7 @@ Step 3: The third step is to make an HttpServer to handle multiple clients with 
 (using ForkJoinPool, so that we can return to the main thread after reading a request), and continue accepting requests indstead of waiting
 for time consuming processes. It needs to be further varified (the id) by setting cookies.
 
+The steps below are not yet covered and will be added soon.
 Step 4: To make our application a RESTful web service by adding HTTP mathods GET, POST, PUT, and DELETE.
 	The application has to act on a shared Counter obj. The object has a counter (int) and name field that can be incremented with a PUT method.
 	The user (browser UI) is presented with a button to increment (to perform PUT operation) counter value.
