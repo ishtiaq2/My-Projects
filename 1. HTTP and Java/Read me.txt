@@ -13,10 +13,14 @@ Step 3: The third step is to make an HttpServer to handle multiple clients with 
 (using ForkJoinPool, so that we can return to the main thread after reading a request), and continue accepting requests indstead of waiting
 for time consuming processes. It needs to be further varified (the id) by setting cookies.
 
-The steps below are not yet covered and will be added soon.
+Step 3b: Step 3 uses a separate thread to process user request. But what if the sendMsg (sending large files) process is time consuming.
+	The issue is address in step 3b, by using CompletableFuture.runAsync().
+
 Step 4: To make our application a RESTful web service by adding HTTP mathods GET, POST, PUT, and DELETE.
 	The application has to act on a shared Counter obj. The object has a counter (int) and name field that can be incremented with a PUT method.
 	The user (browser UI) is presented with a button to increment (to perform PUT operation) counter value.
+	Also note that in step 4 we are using a thread pool of 10 (ExecutorService) instead of default 4 or depending on number of cores 			(ForkJoinPool). No we can accommodate more simultanious client requests.
+
 
 Step 5: User can create (POST), update (PUT) and delete (DELETE) their own Counter objects. 
 
