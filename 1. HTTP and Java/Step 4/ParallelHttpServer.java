@@ -14,10 +14,9 @@ public class ParallelHttpServer {
     private final Selector selector;
     private final ServerSocketChannel listeningSocketChannel;
 	private ByteBuffer msgFromClient = ByteBuffer.allocate(1024);
-	ExecutorService pool = Executors.newFixedThreadPool(10);
-    private int clientId = 0;
-	//private CounterResources resources;
-	//private CounterService service;
+	private int clientId = 0;
+	private CounterResources resources;
+	private CounterService service;
           
     public ParallelHttpServer() throws Exception {
         selector = Selector.open();
@@ -33,17 +32,10 @@ public class ParallelHttpServer {
 		 if the key's channel is ready.		 
 		 */
         listeningSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
-		//service = new CounterServices();
-		//resources = new CounterResources();
+		service = new CounterService();
+		resources = new CounterResources(service);
     }
-	
-	public void send(SelectionKey key) throws Exception {
-		registerWriteOperation(key);
-		selector.wakeup();
-		System.out.println("Thread in send: " + Thread.currentThread().getName());
-		//Thread.currentThread().sleep(10 * 1000);
-	}
-   
+		
     private void serve() throws Exception {
 		System.out.println("Server Listening on Port 8080");
 		while (true) {
@@ -59,9 +51,9 @@ public class ParallelHttpServer {
                     startHandler(key);
                 } else if (key.isReadable()) {
                     recvFromClient(key);
-                } else if (key.isWritable()) {
+                } /*else if (key.isWritable()) {
                     sendToClient(key);
-                }
+                }*/
             }
         }
     }
@@ -80,7 +72,7 @@ public class ParallelHttpServer {
 		/**
 		 clientChannel is registered with the selector, that returns a key whose interest set is set to OP_READ and also the clientChannel is attached to the key.
 		 */
-		ClientHandler handler = new ClientHandler(this, clientChannel, clientId);
+		ClientHandler handler = new ClientHandler(this, clientChannel, clientId, resources);
         clientChannel.register(selector, SelectionKey.OP_READ, handler);
 		//key.attach(handler);
     }
@@ -92,26 +84,36 @@ public class ParallelHttpServer {
        try {
 			ClientHandler handler = (ClientHandler) key.attachment();
 			handler.recvMsg(key);
-		} catch(Exception e) {}
+		} catch(Exception e) {
+			System.out.println("Error while recvFromClient: " + e);
+		}
     }
 	
 	/** This is part of the code, as well as sendMsg part of the handler will execute in main thread,
 	 and hence could cause delay (creates a bottleneck and hence need to be executed by a separate thread);
 	 */
-	public void sendToClient(SelectionKey key) throws Exception {
+	public void sendToClient(SelectionKey key) {
 		try {
 			ClientHandler handler = (ClientHandler) key.attachment();
-			handler.sendMsg();
-		} catch (Exception e) {}
+			//handler.sendMsg();
+			
+		} catch (Exception e) {
+			System.out.println("Error while sendToClient: " + e);
+		}
 	}
     
 	public void registerWriteOperation(SelectionKey key) {
 		key.interestOps(SelectionKey.OP_WRITE);
 	}
-    public void removeClient(SelectionKey key) throws Exception {
-		ClientHandler handler = (ClientHandler) key.attachment();
-        handler.disconnect();
-        key.cancel();//this is not needed as the key becomes unvalid on closing its channel
+    public void removeClient(SelectionKey key) {
+		try {
+			ClientHandler handler = (ClientHandler) key.attachment();
+			key.cancel();
+			handler.disconnect();
+			//this is not needed as the key becomes unvalid on closing its channel
+		} catch(Exception e) {
+			System.out.println("Error in removeClient: " + e);
+		}
     }
         
 	public static void main(String[] args) throws Exception {

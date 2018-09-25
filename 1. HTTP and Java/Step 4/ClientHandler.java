@@ -6,57 +6,69 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.CompletableFuture;
+import java.io.*;
 
 public class ClientHandler implements Runnable {
     
     public ParallelHttpServer server;
-    private SocketChannel clientChannel;
+    protected SocketChannel clientChannel;
 	private SelectionKey key;
+	private CounterResources resources;
 	private ExecutorService pool;
     private ByteBuffer msgFromClient;
-	String response = "";
+	private File[] response = new File[2];
+	private String clientMsg = "";
 	int clientId = 0;
 	long startTime;
 	
-    public ClientHandler(ParallelHttpServer server, SocketChannel clientChannel, int clientId) {
+    public ClientHandler(ParallelHttpServer server, SocketChannel clientChannel, int clientId, CounterResources resources) {
 		startTime = System.currentTimeMillis();
         this.server = server;
         this.clientChannel = clientChannel;
-		pool = Executors.newFixedThreadPool(10);
+		this.resources = resources;
+		pool = Executors.newFixedThreadPool(1);
 		msgFromClient = ByteBuffer.allocate(1024);
 		this.clientId = clientId;
     }
     
 	public void run() {
 		try {
-			String file = "<html><head><title>EchoHttpServer</title>" +
-							"</head><body> Welcome to NIO Http Server <br>" +
-							"Your ID: " + clientId + "</body> </html>";
-							
-			String responseHeader = "HTTP/1.0 200 OK\r\n" +	
-							"content-type: text/html\r\n" +
-							"content-length: " + file.length() + "\r\n\r\n";
-			response = responseHeader + file;
-			System.out.println("Thread in run: " + Thread.currentThread().getName());
-			server.send(key);
+			response /**file */ = resources.processRequest(clientMsg, clientId);
+			
+			sendMsg(response);
 		} catch(Exception e) {
 		}
 	}
 	
-	void sendMsg() throws Exception {
-		CompletableFuture.runAsync(()-> {
-			
-			try {
-				Thread.currentThread().sleep(3 * 1000);
-				ByteBuffer msgToClient = ByteBuffer.wrap(response.getBytes());
-				clientChannel.write(msgToClient);
-				if (msgToClient.hasRemaining()) {
-					System.out.println("Could not send message");
+	void sendMsg(File[] res) {
+		
+		//CompletableFuture.runAsync(()-> { 
+		/** As above causes to sendMsg in a different thread,   and at the same time the  
+		 keeping the main thrad to opearate on the key. that results in closedChannel exception
+		*/
+		ByteBuffer buffer = ByteBuffer.allocate(1024);
+		try {
+			for (File f: res) {	
+				FileInputStream inFile = new FileInputStream(f);
+				while(inFile.available() > 0 ) {
+					inFile.getChannel().read(buffer);
+					buffer.flip();
+					clientChannel.write(buffer);
+					buffer.clear();
 				}
-				server.removeClient(key);
-			} catch(Exception e){}
-		}, pool).thenRun(() -> System.out.println("messgage sent"));
+				inFile.close();
+			}
+			
+				
+		} catch(Exception e){
+			System.out.println("Error while sendMsg: " + e);
+		}
+		//}, pool).thenRun(() -> System.out.println("messgage sent"));
+		System.out.println(res[1].hashCode());
 		pool.shutdown();
+		server.removeClient(key);
+			
+		
     }
     
     void recvMsg(SelectionKey key) throws Exception {
@@ -70,19 +82,21 @@ public class ClientHandler implements Runnable {
 			msgFromClient.flip();
 			byte[] bytes = new byte[msgFromClient.remaining()];
 			msgFromClient.get(bytes);
-			String clientMsg = new String(bytes);
-			System.out.println(clientMsg);
-			//ForkJoinPool.commonPool().execute(this);
+			clientMsg = new String(bytes);
 			pool.execute(this);
         } catch (Exception e) {
-			System.out.println("Error: " + e);
+			System.out.println("Error while recvMsg: " + e);
         }
     }
         
-    void disconnect() throws IOException {
-        clientChannel.close();
-        System.out.println("Client: " + clientId + " Served in " + 
-			(System.currentTimeMillis() - startTime));
+    void disconnect(){
+		try {
+			clientChannel.close();
+			System.out.println("Client: " + clientId + " Served in " + 
+				(System.currentTimeMillis() - startTime) +" milli seonds");
+		} catch(Exception e) {
+			System.out.println("Erro while disconnect: " + e);
+		}
 	}
 	
 }
