@@ -24,15 +24,15 @@ Step 4: To make our application a RESTful web service by adding HTTP mathods GET
 
 Step 5: User can create (POST), update (PUT) and delete (DELETE) their own Counter objects. 
 
-Step 4: Single Page Application (SPA)
+Step 6: Single Page Application (SPA)
 
-The Third step is to see how the client and the server uses or can use (act to use) this data. This include cookies and directory structure on client and server.
+Further: 
+step 7: is to see how the client and the server uses or can use (act to use) this data. This include cookies and directory structure on client and server.
 
-The third step is to see how different http methods (also known as REST services) could be used for communication. This include the format of data exchanged between the client and the server.
 
-The fourth step is to connect to Database(MySQL).
+step 8:  is to connect to Database(MySQL).
 
-The fifth step is to use SSL.
+The fifth step is to use SSL for security.
 
 
 
