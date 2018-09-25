@@ -95,7 +95,7 @@ public class EchoHttpServer {
 	public void sendToClient(SelectionKey key) {
 		clientId++;
 		try {
-			Thread.currentThread().sleep(4 * 1000);
+			//Thread.currentThread().sleep(4 * 1000);
 			SocketChannel clientChannel = (SocketChannel) key.attachment();
 			String file = "<html><head><title>EchoHttpServer</title>" +
 							"</head><body> Welcome to NIO Http Server abcd </body>" +
