@@ -1,2 +1,34 @@
 
 Enter digits from 1 to 10 in fields Roll 1 and Roll 2
+
+
+*********************************************
+
+addLinks(): void {
+    const styl = document.createElement('style');
+    styl.textContent = 'a { display: block}';
+
+    const element = document.getElementById('links') as HTMLElement;
+      for (let i = 0; i < 5; i++) {
+        const a = document.createElement('a');
+        a.href = '#' + i;
+        a.innerText = 'This is link ' + i;
+        element.appendChild(a);
+    }
+  }
+
+}
+
+const styles = new Array();
+styles['display'] = 'block';
+styles['border'] = 'solid 1px';
+styles['width'] = '50%';
+styles['text-decoration'] = 'none';
+styles['padding'] = '10px';
+styles['margin'] = '1px';
+
+const styles2: string[] = new Array();
+styles2[0] = 'abc';
+
+
+********************************************
