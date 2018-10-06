@@ -3,7 +3,6 @@ Enter digits from 1 to 10 in fields Roll 1 and Roll 2
 
 
 *********************************************
-
 addLinks(): void {
     const styl = document.createElement('style');
     styl.textContent = 'a { display: block}';
@@ -29,6 +28,4 @@ styles['margin'] = '1px';
 
 const styles2: string[] = new Array();
 styles2[0] = 'abc';
-
-
 ********************************************
