@@ -1,0 +1,33 @@
+div {
+    color: white;
+    background: grey;
+    width: 25%;
+    height: 30%;
+    border-style:solid;
+    border-width:thick;
+    padding: 10px 140px;
+}
+
+div header {
+    color: white;
+    background: grey;
+    width: 100%;
+    text-align: left;
+    font-size: 1.9em;
+}
+
+p {
+    width: 50%;
+    align-content: center;
+}
+
+p input {
+    width: 100%;
+    
+}
+
+a {
+    text-decoration: none;
+    color:greenyellow;
+    cursor: pointer;
+}

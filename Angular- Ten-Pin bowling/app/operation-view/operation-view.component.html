@@ -1,0 +1,13 @@
+<div>
+
+  <header>
+    CRUD Operations on Counter
+  </header>
+
+<p>Name <input type="text" name="name" #name> </p>
+<p><input type="button" value="CREATE Counter" (click)="createCounter(name.value)"></p>
+<p><input type="button" value="UPDATE Counter" (click)="updateCounter(name.value)"></p>
+<p><input type="button" value="GET Counter Value" (click)="getCounterValue(name.value)"></p>
+<p><input type="button" value="DELETE Counter" (click)="deleteCounter(name.value)"></p>
+
+</div>

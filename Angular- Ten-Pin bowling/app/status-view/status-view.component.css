@@ -1,0 +1,24 @@
+div {
+    color:red;
+    background: grey;
+    width: 25%;
+    height: 50%;
+    border-style:solid;
+    border-width:thick;
+    padding: 10px 140px;
+}
+
+div header {
+    color: white;
+    background: grey;
+    width: 100%;
+    text-align: left;
+    font-size: 1.9em;
+}
+
+p {
+    color: yellow;
+    width: 100%;
+    align-content: center;
+    font-size: 1.3em;
+}

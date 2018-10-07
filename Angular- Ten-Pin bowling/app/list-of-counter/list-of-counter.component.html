@@ -1,0 +1,11 @@
+<div>
+    <header>
+    List of Counters<a (click)="getListOfCounter()">[Refresh] </a>
+  </header>
+  
+  <ul *ngFor='let counter of counterList'>
+    <li> Name: {{counter.name}}, Counter: {{counter.counterValue}}</li>
+  </ul>
+
+
+</div>
