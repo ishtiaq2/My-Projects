@@ -38,7 +38,7 @@ public class UserResource {
         return new Register("User with this name already exist", ", choose another user name");   
     }
 
-    //@Produces({"application/xml", "application/json"})
+    //@Produces({"application/xml", "application/json"}) /** Make it a post request */
     @Produces("application/json")
     @Path("/login")
     @GET
@@ -50,7 +50,7 @@ public class UserResource {
         return new Register(response[0], response[1] + response[2] );
     }
     
-    @Produces("application/json")
+    @Produces("application/json")   /** make it a delete request */
     @Path("/logout")
     @GET
     public Register getUser(@QueryParam("uid") String uid) {
