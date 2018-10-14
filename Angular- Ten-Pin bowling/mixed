@@ -7,3 +7,38 @@ starting with bootsrap/Routes: https://medium.com/@beeman/tutorial-styling-angul
                                https://blog.angular-university.io/angular2-router/
                                https://blog.angular-university.io/angular-2-router-nested-routes-and-nested-auxiliary-routes-build-a-menu-navigation-system/
                                 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+***********************************************
+<router-outlet
+  (activate)='onActivate($event)'
+  (deactivate)='onDeactivate($event)'></router-outlet>
+  
+        
+      
+deactivate(): void {
+  ///do some thing
+}
+
+    
