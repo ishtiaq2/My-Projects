@@ -1,0 +1,17 @@
+<p> Input Text: {{ inputText }} </p>
+
+<button type="button" (click)="modal.show()">test</button>
+<app-modal #modal>
+  <div class="app-modal-header">
+    header
+  </div>
+  <div class="app-modal-body">
+    <p><input type="text" [(ngModel)]="inputText" #input></p>
+    <p><input type="checkbox"></p>
+
+  </div>
+  <div class="app-modal-footer">
+    <button type="button" class="btn btn-default" (click)="modal.hide()">Close</button>
+    <button type="button" class="btn btn-primary" (click)="saveChanges(input.value); modal.hide()">Save changes</button>
+  </div>
+</app-modal>
