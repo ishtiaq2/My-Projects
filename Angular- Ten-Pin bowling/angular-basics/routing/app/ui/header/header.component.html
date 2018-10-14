@@ -1,0 +1,18 @@
+<div class="header">
+ <div>
+   <a routerLink="router1" routerLinkActive="active" href="/router1">Router 1</a>
+ </div>
+
+  <div>
+    <a routerLink="router2" routerLinkActive="active" href="/router2">Router 2</a>
+  </div>
+
+  <div (click)="navigateRoute('router3')">
+    Router 3
+  </div>
+
+  <div (click)="navigateRoute('child1')">
+    Child 1
+  </div>
+</div>
+
