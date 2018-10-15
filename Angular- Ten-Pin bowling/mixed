@@ -43,3 +43,9 @@ deactivate(): void {
 }
 
     
+    
+    Commit to Git:
+    
+    >:devel/mavensw$: git status or st
+    > devel/mavensw$: git add filename
+    > devel/mavensw$: git commit 
