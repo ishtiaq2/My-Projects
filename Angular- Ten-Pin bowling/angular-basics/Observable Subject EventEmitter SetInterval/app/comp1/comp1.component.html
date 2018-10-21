@@ -1,0 +1,16 @@
+<ul>
+  <li *ngFor="let d of myData | async">
+    {{d}}
+  </li>
+</ul>
+
+<hr>
+
+Display Array object    : {{object | json}} <br>
+Get array element by key: object[1]: {{object[1] | json}} <br>
+Display array object as string: {{object2}}<br>
+
+<hr>
+
+Subject value <br>
+{{subjectValue[0]}}
