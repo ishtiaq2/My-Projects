@@ -1,0 +1,44 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.container-fluid {
+  margin-top: 0.5em;
+  margin-left: 0.5em;
+  background: antiquewhite;
+}
+.col-md-12 {
+  border: solid 1px;
+}
+
+.col-md-6 {
+  border: solid 1px;
+}
+
+.col-md-3 {
+  border: solid 1px;
+}
+
+.col-md-2 {
+  border: solid 1px;
+}
+
+.col-md-1 {
+  border: solid 1px;
+}
+
+.col-md-4 {
+  border: solid 1px;
+}
+
+
+@media (min-width:992px)
+{
+  .container{width:960px}
+}
+@media (min-width:1200px)
+{
+  .container{width:960px !important;}
+}
+
+.toBind {
+  background: aquamarine;
+}
