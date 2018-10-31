@@ -1,0 +1,91 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12"> Column-12</div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 col-md-6 col-lg-6"> Column-6</div>
+    <div class="col-sm-6 col-md-6 col-lg-6"> Column-6</div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12"> Column-4-1</div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12"> Column-4-1</div>
+      </div>
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4"> Column-4</div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12"> Column-4-1</div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12"> Column-4-1</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 col-md-6 col-lg-6"> Column-4-1</div>
+    <div class="col-sm-6 col-md-6 col-lg-6"> Column-4-1</div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 col-md-6 col-lg-6"> Column-4-1</div>
+    <div class="col-sm-6 col-md-6 col-lg-6"> Column-4-1</div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <div class="row"> <div class="col-sm-12 col-md-12 col-lg-12"> 1 </div> </div>
+      <div class="row"> <div class="col-sm-12 col-md-12 col-lg-12"> 2 </div> </div>
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4 hr-bottom-thin"> Column-4-1</div>
+    <div class="col-sm-4 col-md-4 col-lg-4"> Column-4-1</div>
+  </div>
+
+  <div *ngFor="let row of rows">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12"> {{row}} </div>
+    </div>
+  </div>
+
+
+
+  <!-- binding data to column -->
+  <div class="row">
+    <div class="col-sm-3 col-md-3 col-lg-3" *ngFor="let col of cols" [ngClass]="col === 'col: 0' || col === 'col: 3' ? 'toBind': 'temp' ">{{col}}
+
+      <div *ngIf="col ==='col: 0'">
+        <div class="row"  *ngFor="let d of data">
+          <div class="col-sm-12 col-md-12 col-lg-12 toBind"> {{d}}</div>
+        </div>
+      </div>
+
+      <div *ngIf="col ==='col: 3'">
+        <div class="row"  *ngFor="let d of data">
+          <div class="col-sm-12 col-md-12 col-lg-12 toBind"> {{d}}</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- binding data to column -->
+
+
+  <!-- bind data to column -->
+
+  <div class="row">
+    <div class="col-sm-3 col-md-3 col-lg-3" *ngFor="let number of [0, 1, 2, 3]"> {{cols[number]}}
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12"> {{data[number]}}</div>
+      </div>
+    </div>
+  </div>
+
+
+</div> <!--container -->
