@@ -1,0 +1,3 @@
+Using Angular to generate client side code, buttons to choose file and upload.
+Nodejs as a file server, to accept post data (file) and store it on the server.
+Python for testing and automation.
