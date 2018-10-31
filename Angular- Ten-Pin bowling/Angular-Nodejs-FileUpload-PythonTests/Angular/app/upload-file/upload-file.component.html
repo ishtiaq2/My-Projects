@@ -1,0 +1,7 @@
+<p></p>
+<input type="file" (change)="fileSelected($event)" name="file" id="select_file"/>
+<p></p>
+<input type="button" (click)="uploadFile()" value="Upload" id="upload_file">
+
+<p></p>
+{{response.fileName}} {{response.status}}
