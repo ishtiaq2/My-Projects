@@ -1,0 +1,17 @@
+[id^="div-"] {
+  width: 250px;
+  height: 400px;
+  margin-left: 10px;
+  margin-top: 10px;
+  border: 1px solid black;
+}
+
+[class^="list-"] {
+  border: solid 1px;
+  margin: 5px;
+  cursor: move;
+}
+
+[class^="list-"]:hover {
+  background-color: red;
+}

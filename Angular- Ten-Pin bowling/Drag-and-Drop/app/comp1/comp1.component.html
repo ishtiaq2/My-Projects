@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<div id="div-1" (drop)="drop($event)" (dragover)="allowDrop($event)">
+  <div *ngFor='let l of list' [id]=l [class]=l draggable="true" (dragstart)="drag($event)" (click)="showContent(l)" [hidden]=!show> {{l}}
+      Show <i [ngClass]='showSub ? arrowSub2 : arrowSub1' (click)="showSub = !showSub"></i>
+      <div *ngFor='let l of list' [id]=l [class]=l draggable="true" (dragstart)="drag($event)" (click)="showContent(l)" [hidden]=!showSub> {{l}}</div>
+  </div>
+  
+</div>
+
+<div id="div-2" (drop)="drop($event)" (dragover)="allowDrop($event)">
+  Show <i [ngClass]='show ? arrow2 : arrow1' (click)="show = !show"></i>
+
+</div>
+
+
+
+<!-- <h2>Drag and Drop</h2>
+<div  id="div2" (drop)="drop($event)" (dragover)="allowDrop($event)">
+  <div id='dr' draggable="true" (dragstart)="drag($event)"> draggaable </div>
+</div>
+
+<div id="div3" 
+  (drop)="drop($event)" 
+  (dragover)="allowDrop($event)">
+</div>
+
+-->
+
