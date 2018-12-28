@@ -1,0 +1,39 @@
+<h1>Draggable</h1>
+
+<h2> Part 1 - draggable directive</h2>
+
+<div class="box" appDraggable
+  (dragStart)="onDragStart()"
+  (dragMove)="onDragMove($event)"
+  (dragEnd)="onDragEnd()">
+  My box1
+</div>
+
+<div class="box" appDraggableRx
+  (dragStart)="onDragStart()"
+  (dragMove)="onDragMove($event)"
+  (dragEnd)="onDragEnd()">
+  My box2
+</div>
+
+<div style="width: 710px; border: solid 2px; border-color: blue; margin-top: 10px; padding: 0">
+  <svg width="700px" height="70px" viewBox="0 0 700 70" class='viewBox'>
+    <rect appDraggableRx 
+      (dragStart)="onDragStart()"
+      (dragMove)="onDragMove($event)"
+      (dragEnd)="onDragEnd($event)"
+      [attr.x]="x_position" y="15" 
+      [attr.width]="w_size"
+      height="50px"
+      rx="4" 
+      ry="4" 
+      style="stroke: #40B498; stroke-width: 4; fill-opacity: 0.5"
+    />
+    <line x1="0" y1="66" 
+          x2="700" y2="66" 
+      style="stroke: black; 
+      stroke-width:4; opacity: 1; padding: 0; margin: 0"
+    />
+    
+  </svg>
+</div>

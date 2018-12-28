@@ -1,0 +1,21 @@
+.box {
+    background: #BADA55;
+    border: 1px solid black;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+.viewBox {
+    margin: 2px;
+    border: solid 3px;
+    border-color: red;
+}
+rect {
+    fill: #40B498;
+    box-sizing: border-box;
+}
+
+.dragging {
+    background: coral;
+    fill: coral;
+}
