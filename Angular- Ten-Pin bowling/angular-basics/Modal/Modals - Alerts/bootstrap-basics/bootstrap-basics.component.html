@@ -1,0 +1,40 @@
+<div (click)="onContainerClicked($event)" class="modal fade" [ngClass]="{'show': visibleAnimate}"
+  [ngStyle]="{'display': visible ? 'block' : 'none', 'opacity': visibleAnimate ? 1 : 0}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Modal Title</h2>
+        <button type="button" class="close" (click)="hide()"><span>&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <p>This is modal body</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="hide()">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Alert &amp; Modals</h1>
+    </div>
+  </div>
+  <div class="row" *ngIf="!alrt_dismiss">
+    <div class="col">
+      <div class="alert alert-danger alert-dismissable fade show" role="alert">
+        <button type="button" class="close" (click)="alert_dismiss()"> <span aria-hidden="true">&times;</span></button>
+        <h2>This is an Alert!</h2>
+        <p>I am an alert</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <button type="button" class="btn btn-primary" (click)="show()">Show modal</button>
+    </div>
+  </div>
+</div>
