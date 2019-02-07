@@ -12,10 +12,10 @@ import { delay, min } from 'rxjs/operators'
 export class AsyncAwaitComponent implements OnInit {
   
   public people: Person[] = [
-    { name: 'Ishtiaq', age: 34 , gender: Gender.MALE },
-    { name: 'Hoor', age: 24 , gender: Gender.FEMALE },
-    { name: 'Mano', age: 2, gender: Gender.FEMALE },
-    { name: 'Rayan', age: 1, gender: Gender.MALE } 
+    { name: 'MrA', age: 34 , gender: Gender.MALE },
+    { name: 'MsB', age: 24 , gender: Gender.FEMALE },
+    { name: 'MsC', age: 2, gender: Gender.FEMALE },
+    { name: 'MrD', age: 1, gender: Gender.MALE } 
   ];
   
   constructor() { }
