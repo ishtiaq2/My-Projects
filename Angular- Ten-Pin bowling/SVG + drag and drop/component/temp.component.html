@@ -1,0 +1,169 @@
+<div class="container-fluid tmp-main-container">
+
+
+  <div id="container" class="container">
+
+    <div id="fruit-veg-container">
+      <div id="fruits">
+        <div id="fruit-{{fruit}}"
+             *ngFor="let fruit of fruits"
+             class="fruits-veg"
+             draggable
+             [dragData]="fruit"
+             [dragScope]="fruit"
+             [dragOverClass]="'drag-source-border'"
+             (onDragStart)="dragStart($event, fruit)">
+          {{fruit}}
+        </div>
+      </div>
+
+      <div id="vegs">
+        <div id="vegs-{{veg}}"
+             *ngFor="let veg of vegs"
+             class="fruits-veg"
+             draggable
+             [dragData]="veg"
+             [dragScope]="veg"
+             [dragOverClass]="'drag-source-border'"
+             (onDragStart)="dragStart($event, veg)">
+          {{veg}}
+        </div>
+      </div>
+    </div>
+
+    <div id="picker">
+
+      <div id="pick-fruits"
+           droppable
+           [dropScope]="fruits"
+           [dragOverClass]="'drag-target-border'"
+           [dragHintClass]="'drag-hint'"
+           (onDrop)="onItemDrop($event, 'fruits')">
+        <p> Pick Fruit</p>
+        <div id="fruit-{{fruit}}"
+             *ngFor="let fruit of pickFruits"
+             class="fruits-veg"
+             draggable
+             [dragData]="fruit"
+             [dragScope]="fruit"
+             [dragOverClass]="'drag-source-border'"
+             (onDragStart)="dragStart($event, fruit)"
+             >
+          {{fruit}}
+        </div>
+      </div>
+      <div id="pick-veg"
+           droppable
+           [dropScope]="vegs"
+           [dragOverClass]="'drag-target-border'"
+           [dragHintClass]="'drag-hint'"
+           (onDrop)="onItemDrop($event, 'veg')">
+        <p> Pick Veg</p>
+        <div id="vegs-{{veg}}"
+             *ngFor="let veg of pickVegs"
+             class="fruits-veg"
+             draggable
+             [dragData]="veg"
+             [dragScope]="veg"
+             [dragOverClass]="'drag-source-border'"
+             (onDragStart)="dragStart($event, veg)"
+             (onDragEnd)="dragEnd()"
+             >
+          {{veg}}
+        </div>
+      </div>
+
+    </div>
+
+    <div id="dustbin"
+         droppable
+         [dropScope]="garbage"
+         [dragOverClass]="'drag-target-border'"
+         [dragHintClass]="'drag-hint'"
+         (onDrop)="onItemGarbage($event, 'fruits')">
+      <p> Dustbin</p>
+    </div>
+
+  </div>
+
+
+  <!--- draggable ---------------------------------------------------------------->
+  <div id="movable-area"
+       class="movable-area"
+       #movableArea
+       appMovableArea2>
+
+    <div id="draggable"
+         class="draggable"
+         [ngStyle]="getWidth()"
+         #movableItem
+         appPositionItem
+         (dragEnded)="appPositionDragEnded($event)">
+
+    </div>
+
+  </div>
+
+  <!--div appMovableArea2 style="width: calc(100% - 2rem); border: 2px solid red">
+    <div appPositionItem style="width: 200px; border: 2px solid black">
+      Temp
+    </div>
+  </div-->
+  <!--- draggable ends---------------------------------------------------------------->
+
+</div>
+
+<div id="div-svg" style="border: 2px solid green; margin-top: 1rem">
+  <div id="svg" style="border: 1px solid red; padding: 1rem 0 1rem 0; margin: 1rem; width: 1600px" appMovableArea2>
+    <svg [attr.width.px]="movableSVGWidth" attr.height="{{movableSVGHeight}}px"
+         appPositionItem
+         #movableSVG
+         (dragEnded)="appPositionDragEndedSVG($event)">
+      <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow"
+              (click)="getSVGData('yellow face')"
+              class="smily-head"/>
+      <circle cx="30" cy="40" r="10" stroke="green" stroke-width="4" fill="white"
+              (click)="getSVGData('left eye')">
+      </circle>
+      <circle cx="30" cy="40" r="5" stroke="blue" stroke-width="1" fill="black"
+              (click)="getSVGData('black dot inside left eye')"/>
+      <circle cx="70" cy="40" r="10" stroke="green" stroke-width="4" fill="white"
+              (click)="getSVGData('right eye')">
+      </circle>
+      <circle cx="70" cy="40" r="5" stroke="blue" stroke-width="1" fill="black"
+              (click)="getSVGData('black dot inside right eye')"/>
+      <line x1="50" y1="40" x2="50" y2="60" style="stroke:green;stroke-width:3" (click)="getSVGData('nose')"/>
+      <path d="M 46 60
+              l 8 0"
+            style="stroke: green; stroke-width: 2"/>
+      <path d="M 35 65
+              A 3,1 1 1,0 65,65"
+            style="stroke: brown; fill:none; stroke-width: 3" (click)="getSVGData('mouth')"/>
+    </svg>
+  </div>
+
+  <div id="svg-path">
+    <!-- Example -->
+    <svg width="100%" height="500px">
+
+      <defs>
+        <path id="MyPath" d="M 20 40 Q 260 240 400 500" />
+      </defs>
+      <use xlink:href="#MyPath" fill="none" stroke="#59fa81" />
+      <text font-family="Courier New" font-size="42.5">
+        <textPath xlink:href="#MyPath">
+          Path following text.
+        </textPath>
+      </text>
+    </svg>
+    <!-- Example ends-->
+
+  </div>
+
+</div>
+
+
+
+<div id="media-queries" class="media-query-color">
+ <p>Media Queries</p>
+</div>
