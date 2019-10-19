@@ -25,7 +25,7 @@ class EnableGPIO:
 
     def set_direction(self, direction):
         try:
-            file = open(self.GPIO_PATH + 'gpio/gpio' + str(self.gpio_number) + '/direction', 'w')
+            file = open(self.GPIO_PATH + 'gpio' + str(self.gpio_number) + '/direction', 'w')
             file.write(str(direction))
             file.close()
             print('File {} created'.format(file))
